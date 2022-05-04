@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ItemStatusFilter from './components/item-status-filter';
 import SearchPanel from './components/search-panel';
 import AppHeader from './components/app-header';
 import TodoList from './components/todo-list';
@@ -15,6 +16,7 @@ const App = () => {
     <div>
       <AppHeader />
       <SearchPanel />
+      <ItemStatusFilter />
       <TodoList todos={todoData} />
     </div>
   );
