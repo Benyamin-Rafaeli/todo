@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import './todo-list-item.css';
 
-class TodoListItem extends Component {
+export default class TodoListItem extends Component {
+  onLabelClick = () => {
+    console.log(`Done: ${this.props.label}`);
+  };
+
   render() {
     const { label, important = false } = this.props;
 
@@ -9,9 +13,13 @@ class TodoListItem extends Component {
       color: important ? 'tomato' : 'black',
       fontWeight: important ? 'bold' : 'normal',
     };
+
     return (
-      <span className="todo-list-item" style={style}>
-        {label}
+      <span className="todo-list-item">
+        <span className="todo-list-item-label" style={style} onClick={this.onLabelClick}>
+          {label}
+        </span>
+
         <button type="button" className="btn btn-outline-success">
           <i className="fa fa-exclamation" />
         </button>
@@ -24,7 +32,7 @@ class TodoListItem extends Component {
   }
 }
 
-export default TodoListItem;
+// export default TodoListItem;
 
 // const TodoListItemFunc = ({ label, important = false }) => {
 //   const style = {
