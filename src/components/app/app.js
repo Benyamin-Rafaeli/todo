@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ItemStatusFilter from '../item-status-filter';
+import ItemAddFrom from '../item-add-from';
 import SearchPanel from '../search-panel';
 import AppHeader from '../app-header';
 import TodoList from '../todo-list';
 import './app.css';
 
 export default class App extends Component {
+  maxId = 100;
   state = {
     todoData: [
       { label: 'Drink', important: false, id: 1 },
@@ -22,6 +24,19 @@ export default class App extends Component {
     });
   };
 
+  addItem = text => {
+    const newItem = {
+      label: text,
+      important: false,
+      id: this.maxId++,
+    };
+
+    this.setState(({ todoData }) => {
+      const newArray = [...todoData, newItem];
+      return { todoData: newArray };
+    });
+  };
+
   render() {
     return (
       <div className="todo-app">
@@ -31,6 +46,7 @@ export default class App extends Component {
           <ItemStatusFilter />
         </div>
         <TodoList todos={this.state.todoData} onDeleted={this.deleteItem} />
+        <ItemAddFrom onItemAdded={this.addItem} />
       </div>
     );
   }
