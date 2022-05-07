@@ -24,7 +24,7 @@ export default class ItemAddFrom extends Component {
           placeholder="What needs to be done"
           value={this.state.label}
         ></input>
-        <button className="btn btn-outline-secondary"> Add Item </button>
+        <button className="btn btn-outline-secondary">Add</button>
       </form>
     );
   }
