@@ -21,7 +21,7 @@ export default class ItemAddFrom extends Component {
           type="text"
           className="form-control"
           onChange={this.onLabelChange}
-          placeholder="What needs to be done"
+          placeholder="what needs to be done"
           value={this.state.label}
         ></input>
         <button className="btn btn-outline-secondary">Add</button>
